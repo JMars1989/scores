@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types';
 
 const Player = (props) => {
     const {
@@ -21,3 +22,11 @@ const Player = (props) => {
 }
 
 export default Player;
+
+Player.propTypes = {
+    name: PropTypes.string.isRequired,
+    score: PropTypes.number.isRequired,
+    index: PropTypes.number.isRequired,
+    incrementScore: PropTypes.func.isRequired,
+    decrementScore: PropTypes.func.isRequired
+}

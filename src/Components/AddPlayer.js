@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import PropTypes from 'prop-types';
 
 class AddPlayer extends Component {
     constructor(props) {
@@ -36,3 +37,7 @@ class AddPlayer extends Component {
 }
 
 export default AddPlayer;
+
+AddPlayer.propTypes = {
+    addPlayer: PropTypes.func.isRequired
+};
