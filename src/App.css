@@ -1,17 +1,16 @@
+/* ELEMENT STYLES -------------------- */
+body {
+  background: #e8e7e7;
+  font-family: arial;
+  text-transform: uppercase;
+  padding: 0%;
+  margin: 0%;
+}
 
 .title {
   display: flex;
   justify-content: center;
   background-color: rgb(199, 200, 204);
-  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-}
-
-.line {
-  background-color:  rgb(199, 200, 204);
-  width: 300px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
   font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
 
@@ -21,13 +20,23 @@
   font-size: 20px;
 }
 
+.line {
+  background-color: rgb(199, 200, 204);
+  width: 400px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
 .form {
   padding-top: 10px;
   display: flex;
   justify-content: center;
 }
 
-input[type=text], input[type=submit] {
+input[type='text'],
+input[type='submit'] {
   font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
   border: none;
   background: #404040;
@@ -41,21 +50,24 @@ input[type=text], input[type=submit] {
 }
 
 .scoreButton {
-    font-family: inherit;
-    border: none;
-    background: #404040;
-    color: #ffffff !important;
-    font-weight: 100;
-    padding: 20px;
-    text-transform: uppercase;
-    border-radius: 6px;
-    display: inline-block;
-    transition: all 0.3s ease 0s;
+  font-family: inherit;
+  border: none;
+  background: #404040;
+  color: #ffffff !important;
+  font-weight: 100;
+  padding: 20px;
+  text-transform: uppercase;
+  border-radius: 6px;
+  display: inline-block;
+  transition: all 0.3s ease 0s;
 }
 
-/* input[type=text]:focus {
-  background-color: lightblue;
-} */
+.removeButton {
+  background-color: inherit;
+  border: none;
+  text-transform: uppercase;
+  font-weight: 600;
+}
 
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {

@@ -4,41 +4,31 @@ import AddPlayerForm from './Components/AddPlayer';
 import Header from './Components/Header';
 import './App.css';
 
-/**
- * Scoreboard comp state:players array(name, score)
-Methods: handleIncrementScore(indexOfPlayer), handleDecrementScore(indexOfPlayer) handleAddPlayer(name)
-
-Maybe not called for?
-//PlayerList comp props:players array. Maps players array to player comps    
-
-Player comp props:name, score, key, index, incrementScore(indexOfPlayer), decrementScore(indexOfPlayer)
-
-AddPlayerForm props: addPlayer(name)
-
-Header comp? Title
- */
-
 class Scoreboard extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      players: [{
-        name: 'John',
-        score: 0
-      },
-      {
-        name: 'Jack',
-        score: 0
-      }, {
-        name: 'Jill',
-        score: 0
-      }]
+      players: [
+        {
+          name: 'John',
+          score: 0
+        },
+        {
+          name: 'Jack',
+          score: 0
+        },
+        {
+          name: 'Jill',
+          score: 0
+        }
+      ]
     };
 
     this.handleIncrementScore = this.handleIncrementScore.bind(this);
     this.handleDecrementScore = this.handleDecrementScore.bind(this);
     this.handleAddPlayer = this.handleAddPlayer.bind(this);
+    this.handleRemovePlayer = this.handleRemovePlayer.bind(this);
   }
 
   handleIncrementScore = index => {
@@ -49,7 +39,7 @@ class Scoreboard extends Component {
 
     this.setState({
       players: playersCopy
-    })
+    });
   };
 
   handleDecrementScore = index => {
@@ -60,7 +50,7 @@ class Scoreboard extends Component {
 
     this.setState({
       players: playersCopy
-    })
+    });
   };
 
   handleAddPlayer = name => {
@@ -75,21 +65,33 @@ class Scoreboard extends Component {
     this.setState({
       players: newPlayers
     });
-  }
+  };
+
+  handleRemovePlayer = name => {
+    const newPlayers = [...this.state.players].filter(
+      player => player.name !== name
+    );
+    //console.log(newPlayers);
+    this.setState({
+      players: newPlayers
+    });
+  };
 
   render() {
     return (
       <div>
-       <Header />
+        <Header />
 
         <div>
           {this.state.players.map((player, index) => (
-            <Player name={player.name} 
-            key={index} 
-            score={player.score} 
-            index={index} 
-            incrementScore={this.handleIncrementScore} 
-            decrementScore={this.handleDecrementScore} 
+            <Player
+              name={player.name}
+              key={index}
+              score={player.score}
+              index={index}
+              incrementScore={this.handleIncrementScore}
+              decrementScore={this.handleDecrementScore}
+              removePlayer={this.handleRemovePlayer}
             />
           ))}
         </div>
